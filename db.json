@@ -1,46 +1,81 @@
 {
-    "plants": [
-      {
+    "users": [
+    {
+    "id": 1,
+    "name": "Roy"
+    },
+    {
+    "id": 2,
+    "name": "Amelia"
+    },
+    {
+    "id": 3,
+    "name": "Aaron"
+    }
+    ],
+    "projects": [
+    {
         "id": 1,
-        "name": "Aloe",
-        "image": "./images/aloe.jpg",
-        "price": 15.99
-      },
-      {
+        "user_id": 2,
+        "pattern_id": 1,
+        "image": null,
+        "favorite": true
+    },
+    {
         "id": 2,
-        "name": "ZZ Plant",
-        "image": "./images/zz-plant.jpg",
-        "price": 26.43
-      },
-      {
+        "user_id": 2,
+        "pattern_id": 2,
+        "image": null,
+        "favorite": true
+    },
+    {
         "id": 3,
-        "name": "Pilea peperomioides",
-        "image": "./images/pilea.jpg",
-        "price": 6.27
-      },
-      {
+        "user_id": 3,
+        "pattern_id": 1,
+        "image": null,
+        "favorite": true
+    },
+    {
         "id": 4,
-        "name": "Pothos",
-        "image": "./images/pothos.jpg",
-        "price": 12.11
-      },
-      {
+        "user_id": 3,
+        "pattern_id": 1,
+        "image": null,
+        "favorite": true
+    },
+    {
         "id": 5,
-        "name": "Jade",
-        "image": "./images/jade.jpg",
-        "price": 10.37
-      },
-      {
-        "id": 6,
-        "name": "Monstera Deliciosa",
-        "image": "./images/monstera.jpg",
-        "price": 25.99
-      },
-      {
-        "id": 7,
-        "name": "Fiddle Leaf Fig",
-        "image": "./images/fiddle-leaf-fig.jpg",
-        "price": 55
-      }
+        "user_id": 1,
+        "pattern_id": 1,
+        "image": null,
+        "favorite": true
+    }
+    ],
+    "patterns": [
+        {
+            "id": 1,
+            "image": null,
+            "name": "Girl Picking Gourds",
+            "category": "Tiffany Style",
+            "description": "Original was made in 1890 for a living room at Larelton Hall, Oyster Bay, NY."
+        },
+        {
+            "id": 2,
+            "image": null,
+            "name": "Autumn",
+            "category": "Tiffany Style",
+            "description": "Designed by Lydia Emmet in 1893"
+        },{
+            "id": 3,
+            "image": null,
+            "name": "Bird in Flight",
+            "category": "Art Deco Style",
+            "description": "Window pane with a geometric bird flying in front of a sunset."
+        },{
+            "id": 4,
+            "image": null,
+            "name": "Two Roses",
+            "category": "Art Nouveau Style",
+            "description": "Square panel with two intertwined roses"
+        }
     ]
-  }
+}

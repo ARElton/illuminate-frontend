@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-rou
 import ProjectTile from './ProjectTile'
 
 function ProjectView() {
-    
+
+    return(
+        <ul className="project-cards">{ /* render  */}</ul>
+    )
 }
 
 export default ProjectView;
