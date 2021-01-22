@@ -26,7 +26,7 @@ function App() {
   return (
     <div>
       <Header />
-      <PatternList />
+      <PatternList patterns={patterns}/>
 
     </div>
 

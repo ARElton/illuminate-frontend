@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 
-function PatternTile() {
+function PatternTile({pattern}) {
+
+    const [favorite, setFavorite] = useState(false)
+    const {id, image, name, category, description} = pattern
 
     return(
         <li className="card">
@@ -15,13 +18,13 @@ function PatternTile() {
                     onClick={() => setFavorite(true)}
                     className="emoji-button favorite">☆</button>
                     )}
-                <strong>{"Pattern name"}</strong>
+                <strong>{name}</strong>
             </div>
             <div className="image">
                 <img src={image} alt={description} />
             </div>
             <div className="Category">
-                <span>{"Category"}</span>
+                <span>{category}</span>
             </div>
         </li>
     )
