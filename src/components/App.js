@@ -15,11 +15,12 @@ function App() {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_BASE_URL}`)
+    // fetch(`${process.env.REACT_APP_API_BASE_URL}`)
+    fetch('http://localhost:3000/patterns')
     .then((r)=>r.json())
     .then(allData => {
-      setPatterns(allData.patterns)
-      setProjects(allData.projects)
+      setPatterns(allData)
+      // setProjects(allData.projects)
     })
   }, [])
   
@@ -27,11 +28,7 @@ function App() {
     <div>
       <Header />
       <PatternList patterns={patterns}/>
-
     </div>
-
-
-
   )
 }
 

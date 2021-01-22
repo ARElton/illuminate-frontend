@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
+.image {
+  height: 100px;
+}
 
 .button,
 button {

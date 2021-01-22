@@ -12,7 +12,10 @@ function PatternList ({patterns}) {
     )
 
     return(
-        <ul className="pattern-cards">{patternComponents}</ul>
+        <div>
+            <h1>PatternList</h1>
+            <ul className="pattern-cards">{patternComponents}</ul>
+        </div>
     )
 
 }

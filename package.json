@@ -14,7 +14,7 @@
     "json-server": "^0.16.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start -p 6000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
