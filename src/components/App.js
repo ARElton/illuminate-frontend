@@ -1,5 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+
+import logo from '../logo.svg';
+import '../App.css';
+import Header from './Header';
+import PatternList from './PatternList';
+import PatternView from './PatternView';
 
 function App() {
   return (
