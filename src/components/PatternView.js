@@ -6,4 +6,4 @@ function PatternView() {
     
 }
 
-export default PatterView;
+export default PatternView;

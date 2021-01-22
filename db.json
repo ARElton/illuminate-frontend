@@ -51,31 +51,31 @@
     }
     ],
     "patterns": [
-        {
-            "id": 1,
-            "image": null,
-            "name": "Girl Picking Gourds",
-            "category": "Tiffany Style",
-            "description": "Original was made in 1890 for a living room at Larelton Hall, Oyster Bay, NY."
-        },
-        {
-            "id": 2,
-            "image": null,
-            "name": "Autumn",
-            "category": "Tiffany Style",
-            "description": "Designed by Lydia Emmet in 1893"
-        },{
-            "id": 3,
-            "image": null,
-            "name": "Bird in Flight",
-            "category": "Art Deco Style",
-            "description": "Window pane with a geometric bird flying in front of a sunset."
-        },{
-            "id": 4,
-            "image": null,
-            "name": "Two Roses",
-            "category": "Art Nouveau Style",
-            "description": "Square panel with two intertwined roses"
-        }
+    {
+        "id": 1,
+        "image": "./pattern_img/girl-gourds.jpg",
+        "name": "Girl Picking Gourds",
+        "category": "Tiffany Style",
+        "description": "Original was made in 1890 for a living room at Larelton Hall, Oyster Bay, NY."
+    },
+    {
+        "id": 2,
+        "image": "./pattern_img/autumn.jpg",
+        "name": "Autumn",
+        "category": "Tiffany Style",
+        "description": "Designed by Lydia Emmet in 1893"
+    },{
+        "id": 3,
+        "image": "./pattern_img/bird-flight.jpg",
+        "name": "Bird in Flight",
+        "category": "Art Deco Style",
+        "description": "Window pane with a geometric bird flying in front of a sunset."
+    },{
+        "id": 4,
+        "image": "./pattern_img/two-roses.jpg",
+        "name": "Two Roses",
+        "category": "Art Nouveau Style",
+        "description": "Square panel with two intertwined roses"
+    }
     ]
 }

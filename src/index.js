@@ -1,14 +1,25 @@
 import React from 'react';
-// import { Router } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom'
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import PatternView from './components/PatternView';
 
 ReactDOM.render(
   <Router>
-    <App />
+    <Route exact path="/">
+      <App />
+    </Route>
+    <Route exact path="/patterns/:id">
+      <PatternView />
+    </Route>
+    <Route exact path="/patterns/new">
+      <PatternForm />
+    </Route>
+    <Route exact path="/login">
+      <Login />
+    </Route>
   </Router>,
   document.getElementById('root')
 );
