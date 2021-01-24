@@ -14,15 +14,28 @@ function App() {
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
 
+  ///-----------Initial Fetches-------------///
+
+  // GET PATTERNS
   useEffect(() => {
-    // fetch(`${process.env.REACT_APP_API_BASE_URL}`)
     fetch('http://localhost:3000/patterns')
     .then((r)=>r.json())
     .then(allData => {
       setPatterns(allData)
-      // setProjects(allData.projects)
     })
   }, [])
+
+  // GET PROJECTS
+  useEffect(() => {
+    fetch('http://localhost:3000/projects')
+    .then((r)=>r.json())
+    .then(allData => {
+      setProjects(allData)
+    })
+  }, [])
+   
+  ///---------------------------------------///
+  
   
   return (
     <div>
