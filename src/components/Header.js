@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-rou
 import Search from './Search';
 import Categories from './Categories';
 import Login from './Login';
+import App from './App';
 
 function Header({query, setQuery, currentUser, setCurrentUser}) {
 
@@ -45,6 +46,7 @@ function Header({query, setQuery, currentUser, setCurrentUser}) {
             query={query} 
             setQuery={setQuery}/>
         </header>
+        
     )
 }
 
