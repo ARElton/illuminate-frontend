@@ -13,7 +13,7 @@ function App() {
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
   const [query, setQuery] = useState("")
-  const [currentUser, setCurrentUser] = useState("Roy")
+  const [currentUser, setCurrentUser] = useState({})
 
   ///-----------Initial Fetches-------------///
 
@@ -34,13 +34,34 @@ function App() {
       setProjects(allData)
     })
   }, [])
-   
-  ///---------------------------------------///
   
   // FILTER SEARCH ITEM
   const displayedPatterns = patterns.filter((pattern)=>{
     return pattern.name.toLowerCase().includes(query.toLowerCase())
   })
+
+  // CREATE NEW PROJECT
+  function handleAddProject(id){
+    const newProjObj = {
+      user_id: currentUser.id,
+      pattern_id: id,
+      image: null,
+      favorite: true
+    }
+
+    fetch(`http://localhost:3000/projects/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: newProjObj
+    })
+    .then(r=>r.json())
+    .then(newProj => {
+      setProjects([...projects, newProjObj])
+    })
+
+  }
   
   return (
     <div>
@@ -52,6 +73,8 @@ function App() {
         />
       <PatternList 
         patterns={displayedPatterns} 
+        currentUser={currentUser}
+        handleAddProject={handleAddProject}
         />
     </div>
   )
