@@ -12,8 +12,8 @@ function PatternList ({patterns}) {
     )
 
     return(
-        <div>
-            <h1>PatternList</h1>
+        <div className="pattern-list">
+            <h1>Patterns</h1>
             <ul className="pattern-cards">{patternComponents}</ul>
         </div>
     )

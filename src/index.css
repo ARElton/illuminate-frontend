@@ -17,19 +17,17 @@ body {
 }
 
 /*----- HEADER -----*/
-
 header {
   background: #3b742fff;
   padding: 15px;
   margin: 10px;
   border-radius:5px;
 	border:1px solid #3b6e22;
-  width: fit-content;
+  width: 100%;
   height: fit-content;
   box-shadow: 2px 2px 5px #162B12ff;
   text-align: center;
 }
-
 header h1 {
   font-size: 50px;
   margin: 0px;
@@ -37,7 +35,6 @@ header h1 {
   text-shadow: 1px 1px 10px #faf7f380;
   -webkit-text-stroke: 2px black;
 }
-
 header input {
   width: 90%;
   height: 20px;
@@ -77,23 +74,58 @@ header input {
   border-radius: 100%;
   width: fit-content;
 }
-/*----- ------ -----*/
 
+/*------ PatternList -------*/
+.pattern-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  background: #3b742fff;
+  padding: 5px;
+  margin: 10px;
+  border-radius:5px;
+	border:1px solid #3b6e22;
+  width: 100%;
+  height: fit-content;
+  box-shadow: 2px 2px 5px #162B12ff;
+}
+.pattern-list h1 {
+  font-size: 50px;
+  margin: 0px;
+  padding: 5px;
+  text-shadow: 1px 1px 10px #faf7f380;
+  -webkit-text-stroke: 2px black;
+}
+.pattern-card ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 /*------ PatternTile -------*/
 .pattern-card {
-  width: 200px;
-  height: 300px;
-
-  margin: 10px;
+  list-style-type: none;
+  margin: 5px;
   padding: 5px;
+  background-color: #4f9e02ff;
+  border-radius:5px;
+	border:1px solid #3b6e22;
+  width: 400px;
+  height: 200px;
 }
-
-.details {
-
+.pattern-card img {
+  max-width: 100px;
+  max-height: 100px;
 }
-
-
+.fav-active {
+  background-color: #4f9e02ff;
+  border: transparent;
+}
+.fav-inactive {
+  background-color: #4f9e02ff;
+  border: transparent;
+}
 
 
 

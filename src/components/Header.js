@@ -1,30 +1,49 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import Search from './Search';
 import Categories from './Categories';
 import Login from './Login';
 
-function Header({query, setQuery}) {
+function Header({query, setQuery, currentUser, setCurrentUser}) {
 
+    const [catTog, setCatTog] = useState(false)
+
+    function catClick(){
+        setCatTog(!catTog)
+    }
 
     return (
         <header>
         <h1>ILLUMINATE</h1>
         <nav>
-            <NavLink exact to="/" className="button">
-            Home
+            <NavLink 
+                exact 
+                to="/" 
+                className="button">
+                Home
             </NavLink>
-            <NavLink to="/patterns/categories" className="button">
-            Categories
+            <button 
+                onClick={catClick}
+                className="button">
+                Categories
+            </button>
+            <NavLink 
+                to="/patterns/new" 
+                className="button">
+                Add Pattern
             </NavLink>
-            <NavLink to="/patterns/new" className="button">
-            Add Pattern
-            </NavLink>
-            <NavLink to="/login" className="button">
-            Login
+            <NavLink 
+                to="/login" 
+                className="button" 
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}>
+                Login
             </NavLink>
         </nav>
-        <Search query={query} setQuery={setQuery}/>
+        {catTog ? <Categories /> : null}
+        <Search 
+            query={query} 
+            setQuery={setQuery}/>
         </header>
     )
 }

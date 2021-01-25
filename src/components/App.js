@@ -1,12 +1,11 @@
 
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
-
-import logo from '../logo.svg';
-import '../App.css';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Header from './Header';
 import PatternList from './PatternList';
-import PatternView from './PatternView';
+import Categories from './Categories';
+import PatternForm from './PatternForm';
+import Login from './Login';
 
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
   const [query, setQuery] = useState("")
+  const [currentUser, setCurrentUser] = useState("Roy")
 
   ///-----------Initial Fetches-------------///
 
@@ -44,8 +44,15 @@ function App() {
   
   return (
     <div>
-      <Header query={query} setQuery={setQuery} />
-      <PatternList patterns={displayedPatterns} />
+      <Header 
+        query={query} 
+        setQuery={setQuery} 
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        />
+      <PatternList 
+        patterns={displayedPatterns} 
+        />
     </div>
   )
 }
