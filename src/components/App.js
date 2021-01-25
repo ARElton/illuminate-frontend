@@ -12,10 +12,13 @@ function App() {
 
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
+  const [userProjects, setUserProjects] = useState([])
   const [query, setQuery] = useState("")
   const [currentUser, setCurrentUser] = useState(null)
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
   const [currentPattern, setCurrentPattern] = useState(null)
+
+  console.log(userProjects)
 
   ///-----------Initial Fetches-------------///
 
@@ -56,6 +59,13 @@ function App() {
     setProjects([...projects, projObj])
   }
 
+  function getUserProjects(id){
+    const filteredProjects = projects.filter((project)=> {
+      return project.user_id === id
+    })
+    setUserProjects(filteredProjects)
+  }
+
  
   
   return (
@@ -80,7 +90,7 @@ function App() {
           />
       </Route>
       <Route exact path="/login">
-        <Login />
+        <Login setCurrentUser={setCurrentUser} setLogin={setLogin} getUserProjects={getUserProjects}/>
       </Route>
       <Route exact path="/patterns/new">
         <PatternForm />

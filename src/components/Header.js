@@ -40,6 +40,7 @@ function Header({query, setQuery, currentUser, setCurrentUser}) {
                 setCurrentUser={setCurrentUser}>
                 Login
             </NavLink>
+            <button className="button"> {currentUser ? currentUser.username : "hello user"} </button>
         </nav>
         {catTog ? <Categories /> : null}
         <Search 

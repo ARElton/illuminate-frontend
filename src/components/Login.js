@@ -1,15 +1,18 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, NavLink, useHistory } from 'react-router-dom';
 
-function Login({setCurrentUser}) {
+function Login({setCurrentUser, setLogin, getUserProjects}) {
+
     const [username, setUsername] = useState("")
+
+    let history = useHistory()
 
     function handleSubmit(e) {
         e.preventDefault()
 
         const formData = { username }
 
-        fetch("http:localhost:3000/login", {
+        fetch("http://localhost:3000/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -18,7 +21,11 @@ function Login({setCurrentUser}) {
         })
         .then((r) => r.json())
         .then((data) => {
-            setCurrentUser(data.user)
+            setCurrentUser(data)
+            setUsername(data.username)
+            setLogin(true)
+            getUserProjects(data.id)
+            history.push("/")
         })
     }
 

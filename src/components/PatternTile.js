@@ -98,9 +98,6 @@ function PatternTile({pattern, currentUser, login, updateProjects, setCurrentPat
               <button onClick={handleClick} className="button">click for more</button>
               </Link>
               </div>
-
-            
-            
         </li>
     )
     
