@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import PatternList from './PatternList';
-import Categories from './Categories';
+import PatternView from './PatternView';
 import PatternForm from './PatternForm';
 import Login from './Login';
 
@@ -36,14 +36,14 @@ function App() {
     })
   }, [])
   // GET USER
-  useEffect(() => {
-    fetch('http://localhost:3000/login', {
-      method: "POST",
-    })
-    .then((r)=>r.json())
-    .then(setCurrentUser)
-    .then(console.log(currentUser))
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/login', {
+  //     method: "POST",
+  //   })
+  //   .then((r)=>r.json())
+  //   .then(setCurrentUser)
+  //   .then(console.log(currentUser))
+  // }, [])
   
   // FILTER SEARCH ITEM
   const displayedPatterns = patterns.filter((pattern)=>{
@@ -58,6 +58,7 @@ function App() {
  
   
   return (
+    <Router>
     <div>
       <Header 
         query={query} 
@@ -67,13 +68,27 @@ function App() {
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         />
-      <PatternList 
-        patterns={displayedPatterns} 
-        login={login}
-        currentUser={currentUser}
-        updateProjects={updateProjects}
-        />
+    <Switch>
+      <Route exact path="/">
+        <PatternList 
+          patterns={displayedPatterns} 
+          login={login}
+          currentUser={currentUser}
+          updateProjects={updateProjects}
+          />
+      </Route>
+      <Route exact path="/patterns/:id">
+        <PatternView />
+      </Route>
+      <Route exact path="/patterns/new">
+        <PatternForm />
+      </Route>
+      <Route exact path="/login">
+        <Login />
+      </Route>
+    </Switch>
     </div>
+    </Router>
   )
 }
 
