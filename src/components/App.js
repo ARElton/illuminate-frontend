@@ -58,7 +58,7 @@ function App() {
  
   
   return (
-    <Router>
+    // <Router>
     <div>
       <Header 
         query={query} 
@@ -84,7 +84,7 @@ function App() {
         <PatternForm />
       </Route>
 
-      <Route exact path="/patterns/:id">
+      <Route path="/patterns/:id">
         <PatternView />
       </Route>
 
@@ -93,7 +93,7 @@ function App() {
       
     </Switch>
     </div>
-    </Router>
+    // </Router>
   )
 }
 
