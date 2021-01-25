@@ -66,6 +66,10 @@ function App() {
     setUserProjects(filteredProjects)
   }
 
+  function updatePatterns(patternObj){
+    setPatterns([...patterns, patternObj])
+  }
+
  
   
   return (
@@ -93,7 +97,7 @@ function App() {
         <Login setCurrentUser={setCurrentUser} setLogin={setLogin} getUserProjects={getUserProjects}/>
       </Route>
       <Route exact path="/patterns/new">
-        <PatternForm />
+        <PatternForm updatePatterns={updatePatterns}/>
       </Route>
 
       <Route path="/patterns/:id">
