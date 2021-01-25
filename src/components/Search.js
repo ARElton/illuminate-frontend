@@ -14,7 +14,6 @@ function Search({query, setQuery}) {
                 onChange={(event)=>setQuery(event.target.value)}
 
             />
-            <button className="search-submit" type="submit">🔍</button>
         </form>
     )
 

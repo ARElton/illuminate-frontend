@@ -5,7 +5,9 @@ import ProjectView from './ProjectView';
 function PatternView({pattern}) {
     
     return (
+        <div className="pattern-list">
         <h1>Hello</h1>
+        </div>
     )
 }
 

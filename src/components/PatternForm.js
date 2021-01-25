@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-rou
 function PatternForm() {
 
     return(
-        <div className="new-pattern-form">
+        <div className="pattern-list">
             <h2>New Pattern</h2>
             <form>
                 <input 

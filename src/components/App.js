@@ -77,15 +77,20 @@ function App() {
           updateProjects={updateProjects}
           />
       </Route>
-      <Route exact path="/patterns/:id">
-        <PatternView />
+      <Route exact path="/login">
+        <Login />
       </Route>
       <Route exact path="/patterns/new">
         <PatternForm />
       </Route>
-      <Route exact path="/login">
-        <Login />
+
+      <Route exact path="/patterns/:id">
+        <PatternView />
       </Route>
+
+
+
+      
     </Switch>
     </div>
     </Router>
