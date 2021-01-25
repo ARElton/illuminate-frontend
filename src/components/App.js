@@ -13,7 +13,8 @@ function App() {
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
   const [query, setQuery] = useState("")
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState(null)
+  const [login, setLogin] = useState(true)
 
   ///-----------Initial Fetches-------------///
 
@@ -34,47 +35,43 @@ function App() {
       setProjects(allData)
     })
   }, [])
+  // GET USER
+  useEffect(() => {
+    fetch('http://localhost:3000/login', {
+      method: "POST",
+    })
+    .then((r)=>r.json())
+    .then(setCurrentUser)
+    .then(console.log(currentUser))
+  }, [])
   
   // FILTER SEARCH ITEM
   const displayedPatterns = patterns.filter((pattern)=>{
     return pattern.name.toLowerCase().includes(query.toLowerCase())
   })
 
-  // CREATE NEW PROJECT
-  function handleAddProject(id){
-    const newProjObj = {
-      user_id: currentUser.id,
-      pattern_id: id,
-      image: null,
-      favorite: true
-    }
-
-    fetch(`http://localhost:3000/projects/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: newProjObj
-    })
-    .then(r=>r.json())
-    .then(newProj => {
-      setProjects([...projects, newProjObj])
-    })
-
+  // UPDATE PROJECT LIST
+  function updateProjects(projObj){
+    setProjects([...projects, projObj])
   }
+
+ 
   
   return (
     <div>
       <Header 
         query={query} 
         setQuery={setQuery} 
+        login={login}
+        setLogin={setLogin}
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         />
       <PatternList 
         patterns={displayedPatterns} 
+        login={login}
         currentUser={currentUser}
-        handleAddProject={handleAddProject}
+        updateProjects={updateProjects}
         />
     </div>
   )

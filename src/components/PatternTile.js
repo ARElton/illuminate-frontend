@@ -1,44 +1,89 @@
 import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 
-function PatternTile({pattern, currentUser, handleAddProject}) {
+function PatternTile({pattern, currentUser, login, updateProjects}) {
 
     const [favorite, setFavorite] = useState(false)
+    const [project, setProject] = useState({})
+
     const {id, image, name, category, description} = pattern
 
-    useEffect(()=>{
-        fetch(`http://localhost:3000/patterns/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({favorite: favorite})
-        })
-    }, [])
-
-    function onPatternFavorite(){
-        //when favorite is clicked, toggle state
-        setFavorite(!favorite)
-        //create new project with pattern/user ids
-        //update project list state
-        //if favorite is true, allow to render, if false, hide
-        handleAddProject(id)
+    // ON FAVORITE CLICK
+  function handleFavorite(){
+    // TOGGLE FAVORITE STATE
+    setFavorite(!favorite)
+    
+    (Object.keys(project).length === 0) ? handleAddProject() : reFavorite()
     }
 
+     // CREATE NEW PROJECT
+  function handleAddProject(){
+    const newProjObj = {
+      user_id: currentUser.id,
+      pattern_id: id,
+      image: null,
+      favorite: true
+    }
+    fetch(`http://localhost:3000/projects/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: newProjObj
+    })
+    .then(r=>r.json())
+    .then(newProj => {
+      updateProjects(newProj)
+      setProject(newProj)
+    })
+  }
+
+  // HIDE UNFAVORITED PROJECT
+  function handleUnfavorite(){
+      fetch(`http://localhost:3000/projects/${project.id}`, {
+          method: "PATCH",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({favorite: false})
+      })
+      .then(r=>r.json())
+      .then(patchedProj => {
+        updateProjects(patchedProj)
+        setProject(patchedProj)
+      })
+  }
+  // IF PROJECT ALREADY EXISTS AND YOU CLICK FAVORITE
+  function reFavorite(){
+    fetch(`http://localhost:3000/projects/${project.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({favorite: true})
+    })
+    .then(r=>r.json())
+    .then(patchedProj => {
+      updateProjects(patchedProj)
+      setProject(patchedProj)
+    })
+}
 
     return(
         <li className="pattern-card">
+            {login ? (
             <div className="favorite">
                 {favorite ? (
                     <button 
-                    onClick={() => setFavorite(false)} 
+                    onClick={handleFavorite} 
                     className="fav-active">★</button>
                     ) : (
                     <button 
-                    onClick={() => setFavorite(true)}
+                    onClick={handleUnfavorite}
                     className="fav-inactive">☆</button>
                     )}
-            </div>
+            </div> ) : null}
+
 
 
             <strong>{name}</strong>
