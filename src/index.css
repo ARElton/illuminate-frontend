@@ -1,4 +1,125 @@
+/* Color Palette */
+/*
+red: #f8241bff;
+phthalo-Green: #162B12ff;
+fern-green: #3b742fff;
+slimy-green: #4f9e02ff;
+mango: #fdbf04ff;
+cyber-grape: #493e6bff;
+isabelline: #faf7f3ff;
+*/
+
+
 body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #faf7f3ff;
+  background-color: #493e6bff;
+}
+
+/*----- HEADER -----*/
+
+header {
+  background: #3b742fff;
+  padding: 15px;
+  margin: 10px;
+  border-radius:5px;
+	border:1px solid #3b6e22;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: 2px 2px 5px #162B12ff;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 50px;
+  margin: 0px;
+  padding: 5px;
+  text-shadow: 1px 1px 10px #faf7f380;
+  -webkit-text-stroke: 2px black;
+}
+
+header input {
+  width: 90%;
+  height: 20px;
+  padding: 5px;
+  border-radius:5px;
+  margin: 5px;
+  color: #faf7f3ff;
+  background-color: #fdbf04ff;
+}
+.button {
+	background:linear-gradient(to bottom, #509e02 5%, #68a54b 100%);
+  background-color:#509e02;
+  margin: 2px;
+	border-radius:5px;
+	border:1px solid #3b6e22;
+	display:inline-block;
+	cursor:pointer;
+  color:#faf7f3;
+  -webkit-text-stroke: 1px black;
+	font-family:Arial;
+	font-size:24px;
+	font-weight:bold;
+	padding:10px 40px;
+	text-decoration:none;
+	text-shadow:1px 2px 6px #162b12;
+}
+.button:hover {
+	background:linear-gradient(to bottom, #68a54b 5%, #509e02 100%);
+	background-color:#68a54b;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+.search-submit {
+  background-color: #fdbf04ff;
+  border-radius: 100%;
+  width: fit-content;
+}
+/*----- ------ -----*/
+
+
+/*------ PatternTile -------*/
+.pattern-card {
+  width: 200px;
+  height: 300px;
+
+  margin: 10px;
+  padding: 5px;
+}
+
+.details {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   provided css  */
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,8 +133,8 @@ code {
     monospace;
 }
 
-.image {
-  height: 100px;
+.img {
+  max-height: 100px;
 }
 
 .button,
@@ -59,4 +180,4 @@ button.blue:hover {
   color: var(--white);
   background-color: var(--blue);
   border: 2px solid var(--blue);
-}
+} */

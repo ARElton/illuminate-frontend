@@ -7,7 +7,8 @@ function PatternTile({pattern}) {
     const {id, image, name, category, description} = pattern
 
     return(
-        <li className="card">
+        <div className="pattern-card">
+        <li className="pattern-card-li">
             <div className="details">
                 {favorite ? (
                     <button 
@@ -27,6 +28,7 @@ function PatternTile({pattern}) {
                 <span>{category}</span>
             </div>
         </li>
+        </div>
     )
     
 }

@@ -4,17 +4,17 @@ import Search from './Search';
 import Categories from './Categories';
 import Login from './Login';
 
-function Header() {
+function Header({query, setQuery}) {
 
 
     return (
         <header>
-        <h1>Illuminate</h1>
+        <h1>ILLUMINATE</h1>
         <nav>
             <NavLink exact to="/" className="button">
             Home
             </NavLink>
-            <NavLink to="/projects/categories" className="button">
+            <NavLink to="/patterns/categories" className="button">
             Categories
             </NavLink>
             <NavLink to="/patterns/new" className="button">
@@ -24,7 +24,7 @@ function Header() {
             Login
             </NavLink>
         </nav>
-        <Search />
+        <Search query={query} setQuery={setQuery}/>
         </header>
     )
 }

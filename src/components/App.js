@@ -13,6 +13,7 @@ function App() {
 
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
+  const [query, setQuery] = useState("")
 
   ///-----------Initial Fetches-------------///
 
@@ -36,11 +37,15 @@ function App() {
    
   ///---------------------------------------///
   
+  // FILTER SEARCH ITEM
+  const displayedPatterns = patterns.filter((pattern)=>{
+    return pattern.name.toLowerCase().includes(query.toLowerCase())
+  })
   
   return (
     <div>
-      <Header />
-      <PatternList patterns={patterns}/>
+      <Header query={query} setQuery={setQuery} />
+      <PatternList patterns={displayedPatterns} />
     </div>
   )
 }
