@@ -15,6 +15,7 @@ function App() {
   const [query, setQuery] = useState("")
   const [currentUser, setCurrentUser] = useState(null)
   const [login, setLogin] = useState(true)
+  const [currentPattern, setCurrentPattern] = useState(null)
 
   ///-----------Initial Fetches-------------///
 
@@ -75,6 +76,7 @@ function App() {
           login={login}
           currentUser={currentUser}
           updateProjects={updateProjects}
+          setCurrentPattern={setCurrentPattern}
           />
       </Route>
       <Route exact path="/login">
@@ -85,12 +87,10 @@ function App() {
       </Route>
 
       <Route path="/patterns/:id">
-        <PatternView />
+        <PatternView pattern={currentPattern}/>
       </Route>
 
 
-
-      
     </Switch>
     </div>
     // </Router>

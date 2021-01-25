@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import React, {useState} from "react";
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 
-function PatternTile({pattern, currentUser, login, updateProjects}) {
+function PatternTile({pattern, currentUser, login, updateProjects, setCurrentPattern}) {
 
     const [favorite, setFavorite] = useState(false)
     const [project, setProject] = useState({})
@@ -69,6 +69,10 @@ function PatternTile({pattern, currentUser, login, updateProjects}) {
     })
 }
 
+    function handleClick(){
+      setCurrentPattern(pattern)
+    }
+
     return(
         <li className="pattern-card">
             {login ? (
@@ -83,14 +87,20 @@ function PatternTile({pattern, currentUser, login, updateProjects}) {
                     className="fav-inactive">☆</button>
                     )}
             </div> ) : null}
+            
+              <div className="pattern-tile-detail">
+              <strong>{name}</strong>
+              <img src={image} alt={description} />
+              <div className="Category">
+                  <span>{category}</span>
+              </div>
+              <Link to={`/patterns/${id}`}>
+              <button onClick={handleClick} className="button">click for more</button>
+              </Link>
+              </div>
 
-
-
-            <strong>{name}</strong>
-            <img src={image} alt={description} />
-            <div className="Category">
-                <span>{category}</span>
-            </div>
+            
+            
         </li>
     )
     

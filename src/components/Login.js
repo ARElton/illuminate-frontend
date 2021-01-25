@@ -34,7 +34,7 @@ function Login({setCurrentUser}) {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <input type="submit" value="Login" />
+                <input type="submit" className="button" value="Login" />
             </form>
         </div>
     )

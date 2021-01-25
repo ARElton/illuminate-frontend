@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import PatternTile from './PatternTile';
 
-function PatternList ({patterns, login, currentUser, updateProjects}) {
+function PatternList ({patterns, login, currentUser, updateProjects, setCurrentPattern}) {
 
     const patternComponents = patterns.map((pattern) => 
     <PatternTile 
@@ -11,6 +11,7 @@ function PatternList ({patterns, login, currentUser, updateProjects}) {
         login={login}
         currentUser={currentUser}
         updateProjects={updateProjects}
+        setCurrentPattern={setCurrentPattern}
     />
     )
 
