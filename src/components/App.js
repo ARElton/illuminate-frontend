@@ -104,7 +104,12 @@ function App() {
       </Route>
 
       <Route path="/patterns/:id">
-        <PatternView pattern={currentPattern}/>
+        <PatternView 
+        pattern={currentPattern}
+        projects={projects}
+        currentUser={currentUser}
+        updateProjects={updateProjects}
+        />
       </Route>
 
 

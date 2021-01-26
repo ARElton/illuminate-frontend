@@ -148,18 +148,42 @@ header input {
 
 /*------ PatternView -------*/
 
-.pattern-view h1 {
-  font-size: 70px;
+
+.pattern-show img {
+  float: left;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.pattern-show p {
+  float: left;
+  width: 50%;
+}
+
+.pattern-show h1 {
+  width: 50%;
+  float: right;
+  padding: 20px;
+  font-size: 50px;
   margin: 0px;
   padding: 5px;
   text-shadow: 1px 1px 10px #faf7f380;
   -webkit-text-stroke: 2px black;
 }
 
-.pattern-view img {
-  max-width: 500px;
-  max-height: 500px;
+.pattern-show h2 {
+  width: 50%;
+  float: right;
+  padding: 20px;
+  font-size: 50px;
+  margin: 0px;
+  padding: 5px;
+  text-shadow: 1px 1px 10px #faf7f380;
+  -webkit-text-stroke: 2px black;
 }
+
+
+
 
 
 

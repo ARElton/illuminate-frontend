@@ -33,9 +33,6 @@ function PatternForm({updatePatterns}) {
             // getUserProjects(data.id)
             // history.push("/")
         })
-
-        
-
     }
     // function dropdownMenu(event){
     //         setCategory(event)
