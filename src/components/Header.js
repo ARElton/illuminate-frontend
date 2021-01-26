@@ -1,11 +1,14 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, useLocation  } from 'react-router-dom';
 import Search from './Search';
 import Categories from './Categories';
 
 function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) {
 
     const [catTog, setCatTog] = useState(false)
+
+    const location = useLocation();
+    console.log(location.pathname + "locate");
 
     function catClick(){
         setCatTog(!catTog)
@@ -58,7 +61,7 @@ function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) 
             </button> : null}
 
         </nav>
-        {catTog ? <Categories setCurrentSort={setCurrentSort} /> : null}
+        {(catTog && location.pathname === "/") ? <Categories setCurrentSort={setCurrentSort} /> : null}
         <Search 
             query={query} 
             setQuery={setQuery}/>
