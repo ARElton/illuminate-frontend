@@ -2,10 +2,20 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import ProjectTile from './ProjectTile'
 
-function Profile() {
+function Profile({currentUser, userProjects}) {
+
+    const projectComponents = userProjects.map((project) => 
+    <ProjectTile 
+        key={project.id}
+        project={project}
+    />
+    )
 
     return(
-        <ul className="project-cards">{ /* render  */}</ul>
+        <div className="pattern-list">
+            <h1>Your Projects</h1>
+            <ul className="pattern-cards">{projectComponents}</ul>
+        </div>
     )
 }
 

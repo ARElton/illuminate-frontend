@@ -11,6 +11,10 @@ function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) 
         setCatTog(!catTog)
     }
 
+    function handleLogout(){
+        setCurrentUser(null)
+    }
+
     return (
         <header>
         <h1>ILLUMINATE</h1>
@@ -31,14 +35,28 @@ function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) 
                 className="button">
                 Add Pattern
             </NavLink>
+
+            {currentUser ? 
+            <NavLink 
+                to="/profile" 
+                className="button">
+                {currentUser.username}
+            </NavLink> 
+            : 
             <NavLink 
                 to="/login" 
                 className="button" 
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}>
                 Login
-            </NavLink>
-            <button className="button"> {currentUser ? currentUser.username : "hello user"} </button>
+            </NavLink>}
+            {currentUser ? 
+            <button 
+                onClick={handleLogout}
+                className="button">
+                Logout
+            </button> : null}
+
         </nav>
         {catTog ? <Categories setCurrentSort={setCurrentSort} /> : null}
         <Search 

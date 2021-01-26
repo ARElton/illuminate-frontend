@@ -6,6 +6,7 @@ import PatternList from './PatternList';
 import PatternView from './PatternView';
 import PatternForm from './PatternForm';
 import Login from './Login';
+import Profile from './Profile';
 
 
 function App() {
@@ -94,6 +95,9 @@ function App() {
       </Route>
       <Route exact path="/login">
         <Login setCurrentUser={setCurrentUser} setLogin={setLogin} getUserProjects={getUserProjects}/>
+      </Route>
+      <Route exact path="/profile">
+        <Profile currentUser={currentUser} userProjects={userProjects}/>
       </Route>
       <Route exact path="/patterns/new">
         <PatternForm updatePatterns={updatePatterns}/>
