@@ -1,15 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom'
 
-function Categories() {
+function Categories({setCurrentSort}) {
     
+    function handleClick(event){
+        setCurrentSort(event.target.value)
+    }
 
 return (
     <nav className="category-nav">
-        <button>Art Deco</button>
-        <button>Art Nouveau</button>
-        <button>Geometric</button>
-        <button>Tiffany</button>
+        <button className="cat-butt" value="Art Deco Style" onClick={handleClick}>Art Deco</button>
+        <button className="cat-butt" value="Art Nouveau Style" onClick={handleClick}>Art Nouveau</button>
+        <button className="cat-butt" value="Geometric" onClick={handleClick}>Geometric</button>
+        <button className="cat-butt" value="Tiffany Style" onClick={handleClick}>Tiffany</button>
+        <button className="cat-butt" value="" onClick={handleClick}>All</button>
     </nav>
 )
 }

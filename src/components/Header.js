@@ -1,11 +1,9 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 import Search from './Search';
 import Categories from './Categories';
-import Login from './Login';
-import App from './App';
 
-function Header({query, setQuery, currentUser, setCurrentUser}) {
+function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) {
 
     const [catTog, setCatTog] = useState(false)
 
@@ -42,7 +40,7 @@ function Header({query, setQuery, currentUser, setCurrentUser}) {
             </NavLink>
             <button className="button"> {currentUser ? currentUser.username : "hello user"} </button>
         </nav>
-        {catTog ? <Categories /> : null}
+        {catTog ? <Categories setCurrentSort={setCurrentSort} /> : null}
         <Search 
             query={query} 
             setQuery={setQuery}/>

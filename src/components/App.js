@@ -9,16 +9,17 @@ import Login from './Login';
 
 
 function App() {
-
+  // Intitial States
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
+  // User States
   const [userProjects, setUserProjects] = useState([])
-  const [query, setQuery] = useState("")
   const [currentUser, setCurrentUser] = useState(null)
   const [login, setLogin] = useState(false)
+  // Filter States
+  const [query, setQuery] = useState("")
   const [currentPattern, setCurrentPattern] = useState(null)
-
-  console.log(userProjects)
+  const [currentSort, setCurrentSort] = useState("")
 
   ///-----------Initial Fetches-------------///
 
@@ -39,33 +40,31 @@ function App() {
       setProjects(allData)
     })
   }, [])
-  // GET USER
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/login', {
-  //     method: "POST",
-  //   })
-  //   .then((r)=>r.json())
-  //   .then(setCurrentUser)
-  //   .then(console.log(currentUser))
-  // }, [])
   
-  // FILTER SEARCH ITEM
-  const displayedPatterns = patterns.filter((pattern)=>{
-    return pattern.name.toLowerCase().includes(query.toLowerCase())
-  })
-
+  // FILTER SEARCH ITEM & SORT
+  const displayedPatterns = patterns
+    .filter((pattern)=>{
+      return pattern.name.toLowerCase().includes(query.toLowerCase())
+    })
+    .filter((pattern) => {
+      if (currentSort === "") {
+        return pattern
+      } else {
+        return pattern.category === currentSort
+      }
+      })
   // UPDATE PROJECT LIST
   function updateProjects(projObj){
     setProjects([...projects, projObj])
   }
-
+  // On User Login, set user projects
   function getUserProjects(id){
     const filteredProjects = projects.filter((project)=> {
       return project.user_id === id
     })
     setUserProjects(filteredProjects)
   }
-
+  // On new pattern upload, add to the pattern list
   function updatePatterns(patternObj){
     setPatterns([...patterns, patternObj])
   }
@@ -73,7 +72,6 @@ function App() {
  
   
   return (
-    // <Router>
     <div>
       <Header 
         query={query} 
@@ -82,6 +80,7 @@ function App() {
         setLogin={setLogin}
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
+        setCurrentSort={setCurrentSort}
         />
     <Switch>
       <Route exact path="/">
@@ -107,7 +106,6 @@ function App() {
 
     </Switch>
     </div>
-    // </Router>
   )
 }
 
