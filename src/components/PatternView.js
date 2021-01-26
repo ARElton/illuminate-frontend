@@ -1,21 +1,25 @@
-import React, {useParams, useState} from "react";
+import React, {useParams, useState, useEffect} from "react";
+import { BrowserRouter as Link, useLocation} from 'react-router-dom';
 import ProjectTile from './ProjectTile'
 
 
 function PatternView({pattern, projects, currentUser, updateProjects}) {
     
     const {id, name, image, description, category} = pattern
-    const [project, setProject] = useState({})
+    const [project, setProject] = useState(null)
 
-
+  
     const projectComponents = projects.filter((project) => {
-        return project.pattern_id === id 
+        return project.pattern_id === id && project.favorite
     })
      .map((project) => 
         <ProjectTile 
             key={project.id} 
             image={project.image} 
             username={project.user_id} 
+            currentUser={currentUser}
+            pattern={pattern}
+            favorite={project.favorite}
         />
     )
 
@@ -23,15 +27,15 @@ function PatternView({pattern, projects, currentUser, updateProjects}) {
         const newProjObj = {
             user_id: currentUser.id,
             pattern_id: id,
-            image: null,
-            favorite: true
+            image: pattern.image,
+            favorite: false
           }
-          fetch(`http://localhost:3000/projects/${id}`, {
+          fetch(`http://localhost:3000/projects/`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
-            body: newProjObj
+            body: JSON.stringify(newProjObj),
           })
           .then(r=>r.json())
           .then(newProj => {
@@ -41,30 +45,25 @@ function PatternView({pattern, projects, currentUser, updateProjects}) {
     }
 
     return (
-        <React.Fragment>
+        <div className="pattern-list">
             <div className="pattern-show">
+                <h1>{name}</h1>
                 <img src={image} alt={description} />
                 <p>{description}</p>
-                <h1>{name}</h1>
-                <h2>{category}</h2>
+                <p>{category}</p>
+                
             </div>
             <div>
                 <h2>Completed Projects</h2>
                 <button 
                     onClick={handleCreateProject} 
-                    className="create-project">Create Project
+                    className="create-project">
+                    Create New Project
                 </button>
                 <ul className="project-cards">{projectComponents}</ul>
-                <form>
-                    <input 
-                        type="text"
-                        name="image"
-                        placeholder="Image Link"
-                        value={"/* project image value here*/"}
-                    />
-                </form>
+                
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 

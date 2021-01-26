@@ -23,7 +23,7 @@ header {
   margin: 10px;
   border-radius:5px;
 	border:1px solid #3b6e22;
-  width: 100%;
+  width: 80%;
   height: fit-content;
   box-shadow: 2px 2px 5px #162B12ff;
   text-align: center;
@@ -39,7 +39,7 @@ header h1 {
   /* -webkit-text-stroke: 0.1px black; */
 }
 header input {
-  width: 90%;
+  width: 75%;
   height: 20px;
   padding: 5px;
   border-radius:5px;
@@ -101,11 +101,11 @@ header input {
   align-items: flex-start;
   justify-content: space-evenly;
   background: #3b742fff;
-  padding: 5px;
+  padding: 15px;
   margin: 10px;
   border-radius:5px;
 	border:1px solid #3b6e22;
-  width: 100%;
+  width: 80%;
   height: fit-content;
   box-shadow: 2px 2px 5px #162B12ff;
 }
@@ -147,22 +147,21 @@ header input {
 }
 
 /*------ PatternView -------*/
-
-
+.pattern-show {
+  width: 70%;
+}
 .pattern-show img {
   float: left;
   max-width: 500px;
   max-height: 500px;
 }
-
 .pattern-show p {
-  float: left;
+  /* float: left; */
   width: 50%;
 }
-
 .pattern-show h1 {
   width: 50%;
-  float: right;
+  /* float: right; */
   padding: 20px;
   font-size: 50px;
   margin: 0px;
@@ -170,7 +169,6 @@ header input {
   text-shadow: 1px 1px 10px #faf7f380;
   -webkit-text-stroke: 2px black;
 }
-
 .pattern-show h2 {
   width: 50%;
   float: right;
@@ -180,6 +178,52 @@ header input {
   padding: 5px;
   text-shadow: 1px 1px 10px #faf7f380;
   -webkit-text-stroke: 2px black;
+}
+
+/*---------ProjectList--------*/
+.project-card {
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;
+  background-color: #4f9e02ff;
+  border-radius:5px;
+	border:1px solid #3b6e22;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.project-card img {
+  max-width: 100px;
+  max-height: 100px;
+
+}
+.project-input{
+  width: 350px;
+}
+.project-card button {
+  margin: 3px;
+  border: 3px black;
+  background-color:#509e02;
+  margin: 2px 5px;
+  padding:5px 10px;
+	border-radius:5px;
+	cursor:pointer;
+  color:#faf7f3;
+}
+.pro-delete {
+  float: right;
+  margin: 3px;
+  border: 3px black;
+  background-color:#509e02;
+  margin: 2px 5px;
+  padding:5px 10px;
+	border-radius:5px;
+	cursor:pointer;
+  color:#faf7f3;
 }
 
 

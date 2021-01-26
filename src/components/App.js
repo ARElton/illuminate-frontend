@@ -58,6 +58,11 @@ function App() {
   function updateProjects(projObj){
     setProjects([...projects, projObj])
   }
+
+  function handleRemoveProject(id) {
+    const newProjects = projects.filter((project) => project.id !== id)
+    setProjects(newProjects)
+  }
   // On User Login, set user projects
   function getUserProjects(id){
     const filteredProjects = projects.filter((project)=> {
@@ -70,8 +75,6 @@ function App() {
     setPatterns([...patterns, patternObj])
   }
 
- 
-  
   return (
     <div>
       <Header 
@@ -87,17 +90,24 @@ function App() {
       <Route exact path="/">
         <PatternList 
           patterns={displayedPatterns} 
-          login={login}
-          currentUser={currentUser}
-          updateProjects={updateProjects}
+          allPatterns={patterns}
           setCurrentPattern={setCurrentPattern}
           />
       </Route>
       <Route exact path="/login">
-        <Login setCurrentUser={setCurrentUser} setLogin={setLogin} getUserProjects={getUserProjects}/>
+        <Login 
+        setCurrentUser={setCurrentUser} 
+        setLogin={setLogin} 
+        getUserProjects={getUserProjects}
+        />
       </Route>
       <Route exact path="/profile">
-        <Profile currentUser={currentUser} userProjects={userProjects}/>
+        <Profile 
+        currentUser={currentUser} 
+        userProjects={userProjects} 
+        onRemoveProject={handleRemoveProject}
+        onEditProject={updateProjects}
+        />
       </Route>
       <Route exact path="/patterns/new">
         <PatternForm updatePatterns={updatePatterns}/>
@@ -109,6 +119,7 @@ function App() {
         projects={projects}
         currentUser={currentUser}
         updateProjects={updateProjects}
+        allPatterns={patterns}
         />
       </Route>
 

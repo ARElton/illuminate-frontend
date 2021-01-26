@@ -8,7 +8,7 @@ function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) 
     const [catTog, setCatTog] = useState(false)
 
     const location = useLocation();
-    console.log(location.pathname + "locate");
+
 
     function catClick(){
         setCatTog(!catTog)
