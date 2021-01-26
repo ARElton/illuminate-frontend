@@ -73,7 +73,6 @@ function App() {
  
   
   return (
-    // <Router>
     <div>
       <Header 
         query={query} 
@@ -101,13 +100,17 @@ function App() {
       </Route>
 
       <Route path="/patterns/:id">
-        <PatternView pattern={currentPattern}/>
+        <PatternView 
+        pattern={currentPattern}
+        projects={projects}
+        currentUser={currentUser}
+        updateProjects={updateProjects}
+        />
       </Route>
 
 
     </Switch>
     </div>
-    // </Router>
   )
 }
 
