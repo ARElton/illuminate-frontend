@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import ProjectTile from './ProjectTile'
 
 
@@ -47,7 +47,9 @@ function PatternView({pattern, projects, currentUser, updateProjects, onRemovePr
             <div className="pattern-show">
                 <h1>{name}</h1>
                 <p className="cat-p">{category}</p>
-                <img src={image} alt={description} />
+                <Link to={image} target="_blank">
+                  <img src={image} alt={description} />
+                </Link>
                 <p>{description}</p>
             </div>
             <div>
