@@ -310,7 +310,6 @@ header input {
   color:#faf7f3;
 	border-radius:5px;
   cursor:pointer;
-  display: inline-block;
   text-shadow:
   -1px -1px 1px #000,  
    1px -1px 1px #000,
@@ -326,7 +325,6 @@ header input {
   color:#faf7f3;
 	border-radius:5px;
   cursor:pointer;
-  display: inline-block;
   text-shadow:
   -1px -1px 1px #000,  
    1px -1px 1px #000,
