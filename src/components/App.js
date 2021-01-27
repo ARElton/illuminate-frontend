@@ -65,7 +65,6 @@ function App() {
         return project
       }
     })
-    debugger
     setProjects(updatedProjectsList)
   }
   function handleRemoveProject(id) {

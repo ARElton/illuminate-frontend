@@ -3,11 +3,10 @@ import { useLocation } from 'react-router-dom';
 
 function ProjectTile({project, image, favorite, onRemoveProject, onEditProject}) {
 
-    
-    const [newImg, setNewImg] = useState("")
+    const [newImg, setNewImg] = useState(image)
     console.log(project)
     const location = useLocation()
-  
+    
     function handleEdit(event){
         //create object with image and favorite as true
         //fetch PATCH
@@ -19,9 +18,9 @@ function ProjectTile({project, image, favorite, onRemoveProject, onEditProject})
             },
             body: JSON.stringify({image: newImg, favorite: true})
           })
-          .then(r=>r.json())
-          .then(project => {
-            onEditProject(project)
+          .then((r) => r.json())
+          .then(editedProject => {
+            onEditProject(editedProject)
           })
           
     }

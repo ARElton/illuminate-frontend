@@ -21,7 +21,7 @@ function Login({setCurrentUser}) {
         })
     }
     return (
-        <div>
+        <div className="pattern-list">
             <form onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <label htmlFor="username">Username</label>
