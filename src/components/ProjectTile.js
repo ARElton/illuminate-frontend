@@ -1,15 +1,10 @@
 import React, {useState} from "react";
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function ProjectTile({project, image, favorite, onRemoveProject, onEditProject}) {
-
     const [newImg, setNewImg] = useState(image)
-    console.log(project)
     const location = useLocation()
-    
     function handleEdit(event){
-        //create object with image and favorite as true
-        //fetch PATCH
         event.preventDefault()
         fetch(`http://localhost:3000/projects/${project.id}`, {
             method: "PATCH",
@@ -22,7 +17,6 @@ function ProjectTile({project, image, favorite, onRemoveProject, onEditProject})
           .then(editedProject => {
             onEditProject(editedProject)
           })
-          
     }
     function handleDelete(){
         fetch(`http://localhost:3000/projects/${project.id}`, {

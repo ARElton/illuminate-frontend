@@ -9,7 +9,6 @@ function Profile({currentUser, projects, onRemoveProject, onEditProject}) {
             history.push("/login")
         }
     }, [])
-
     const thisUserProjs = projects.filter((project)=> {
         return project.user_id === currentUser.id
       })
@@ -23,7 +22,6 @@ function Profile({currentUser, projects, onRemoveProject, onEditProject}) {
             favorite={project.favorite}
         />
     )
-
     
     return (
         <div className="pattern-list">

@@ -14,7 +14,6 @@ function App() {
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
   // User States
-  // const [userProjects, setUserProjects] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   // Filter States
   const [query, setQuery] = useState("")
@@ -22,7 +21,6 @@ function App() {
   const [currentSort, setCurrentSort] = useState("")
 
   ///-----------Initial Fetches-------------///
-
   // GET PATTERNS
   useEffect(() => {
     fetch('http://localhost:3000/patterns')
@@ -31,7 +29,6 @@ function App() {
       setPatterns(allData)
     })
   }, [])
-
   // GET PROJECTS
   useEffect(() => {
     fetch('http://localhost:3000/projects')
@@ -40,7 +37,7 @@ function App() {
       setProjects(allData)
     })
   }, [])
-  
+
   // FILTER SEARCH ITEM & SORT
   const displayedPatterns = patterns
     .filter((pattern)=>{
@@ -71,24 +68,10 @@ function App() {
     const newProjects = projects.filter((project) => project.id !== id)
     setProjects(newProjects)
   }
-
   // UPDATE PATTERN LIST   ///    On new pattern upload, add to the pattern list
   function updatePatterns(patternObj){
     setPatterns([...patterns, patternObj])
   }
-
-
-  // On User Login, set user projects
-  
-
-  // function getUserProjects(id){
-  //   const filteredProjects = projects.filter((project)=> {
-  //     return project.user_id === id
-  //   })
-  //   setUserProjects(filteredProjects)
-  // }
-  
-  
 
   return (
     <div className="big-container">
@@ -110,7 +93,6 @@ function App() {
       <Route exact path="/login">
         <Login 
         setCurrentUser={setCurrentUser} 
-        // getUserProjects={getUserProjects}
         />
       </Route>
       <Route exact path="/profile">

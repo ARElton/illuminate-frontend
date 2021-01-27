@@ -1,16 +1,12 @@
 import React, {useState} from "react";
 
-
 function PatternForm({updatePatterns}) {
-
     const [image, setImage] = useState("")
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState("")
-
     function handleSubmit(e) {
         e.preventDefault()
-
         fetch("http://localhost:3000/patterns", {
             method: "POST",
             headers: {
@@ -26,22 +22,11 @@ function PatternForm({updatePatterns}) {
         .then((r) => r.json())
         .then((data) => {
             updatePatterns(data)
-            console.log("new pattern created", data)
-            // setCurrentUser(data)
-            // setUsername(data.username)
-            // setLogin(true)
-            // getUserProjects(data.id)
-            // history.push("/")
         })
     }
-    // function dropdownMenu(event){
-    //         setCategory(event)
-    //     }
-        console.log(category)
 
     return(
         <div className="pattern-list">
-            
             <form className="add-pattern-form" onSubmit={handleSubmit}>
                 <h1>New Pattern</h1>
                 <input 
@@ -58,9 +43,6 @@ function PatternForm({updatePatterns}) {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                 />
-                
-                
-                
                 <input 
                     type="text"
                     name="description"
@@ -68,7 +50,6 @@ function PatternForm({updatePatterns}) {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
-
                 <label for="categories">Choose a category:</label>
                 <select id="categories" name="categories" onChange={(e) => setCategory(e.target.value)}>
                     <option value={category}>Art Deco</option>
@@ -76,14 +57,10 @@ function PatternForm({updatePatterns}) {
                     <option value={category}>Geometric</option>
                     <option value={category}>Tiffany</option>
                 </select>
-
-
-
                 <button type="submit">Add Pattern</button>
             </form>
         </div>
     )
-
 }
 
 export default PatternForm; 

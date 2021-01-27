@@ -1,9 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function PatternTile({pattern, setCurrentPattern}) {
     const {id, image, name, category, description} = pattern
-
     function handleClick(){
       setCurrentPattern(pattern)
     }
@@ -16,7 +15,6 @@ function PatternTile({pattern, setCurrentPattern}) {
                   <img src={image} alt={description} />
                 </Link>
                 <p className="pat-p">{category}</p>
-
                 <Link to={`/patterns/${id}`}>
                   <button onClick={handleClick} className="pattern-button">Details</button>
                 </Link>

@@ -1,15 +1,11 @@
-import React, {useState} from "react";
-import { useLocation, useHistory} from 'react-router-dom';
+import React from "react";
+import { useHistory } from 'react-router-dom';
 import ProjectTile from './ProjectTile'
 
 
 function PatternView({pattern, projects, currentUser, updateProjects, onRemoveProject, onEditProject}) {
-    const location = useLocation()
     let history = useHistory()
-
     const {id, name, image, description, category} = pattern
-    const [project, setProject] = useState(null)
-  
     const projectComponents = projects.filter((project) => {
         return project.pattern_id === id && project.favorite
     })
@@ -25,7 +21,6 @@ function PatternView({pattern, projects, currentUser, updateProjects, onRemovePr
             onEditProject={onEditProject}
         />
     )
-
     function handleCreateProject() {
         const newProjObj = {
             user_id: currentUser.id,
@@ -43,7 +38,6 @@ function PatternView({pattern, projects, currentUser, updateProjects, onRemovePr
           .then(r=>r.json())
           .then(newProj => {
             updateProjects(newProj)
-            setProject(newProj)
             history.push("/profile")
           })
     }
