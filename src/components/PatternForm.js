@@ -41,8 +41,9 @@ function PatternForm({updatePatterns}) {
 
     return(
         <div className="pattern-list">
-            <h2>New Pattern</h2>
-            <form onSubmit={handleSubmit}>
+            
+            <form className="add-pattern-form" onSubmit={handleSubmit}>
+                <h1>New Pattern</h1>
                 <input 
                     type="text"
                     name="name"
@@ -58,12 +59,7 @@ function PatternForm({updatePatterns}) {
                     onChange={(e) => setImage(e.target.value)}
                 />
                 <label for="categories">Choose a category:</label>
-                <select id="categories" name="categories" onChange={(e) => setCategory(e.target.value)}>
-                    <option value={category}>Art Deco</option>
-                    <option value={category}>Art Nouveau</option>
-                    <option value={category}>Geometric</option>
-                    <option value={category}>Tiffany</option>
-                </select>
+                
                 
                 <input 
                     type="text"
@@ -72,6 +68,15 @@ function PatternForm({updatePatterns}) {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
+                <select id="categories" name="categories" onChange={(e) => setCategory(e.target.value)}>
+                    <option value={category}>Art Deco</option>
+                    <option value={category}>Art Nouveau</option>
+                    <option value={category}>Geometric</option>
+                    <option value={category}>Tiffany</option>
+                </select>
+
+
+
                 <button type="submit">Add Pattern</button>
             </form>
         </div>
