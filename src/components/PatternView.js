@@ -3,7 +3,7 @@ import { BrowserRouter as Link, useLocation} from 'react-router-dom';
 import ProjectTile from './ProjectTile'
 
 
-function PatternView({pattern, projects, currentUser, updateProjects}) {
+function PatternView({pattern, projects, currentUser, updateProjects, onRemoveProject}) {
     
     const {id, name, image, description, category} = pattern
     const [project, setProject] = useState(null)
@@ -20,6 +20,7 @@ function PatternView({pattern, projects, currentUser, updateProjects}) {
             currentUser={currentUser}
             pattern={pattern}
             favorite={project.favorite}
+            onRemoveProject={onRemoveProject}
         />
     )
 

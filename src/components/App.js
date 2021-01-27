@@ -56,12 +56,12 @@ function App() {
       })
   // UPDATE PROJECT LIST
   function updateProjects(projObj){
-    setProjects([...projects, projObj])
+    setUserProjects([...projects, projObj])
   }
-
+  // DELETE PROJECT
   function handleRemoveProject(id) {
     const newProjects = projects.filter((project) => project.id !== id)
-    setProjects(newProjects)
+    setUserProjects(newProjects)
   }
   // On User Login, set user projects
   function getUserProjects(id){
