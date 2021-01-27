@@ -58,7 +58,9 @@ function PatternView({pattern, projects, currentUser, updateProjects, onRemovePr
             </div>
             <div>
                 <ul className="project-cards-list">
-                    {currentUser ? <button onClick={handleCreateProject} className="create-project">SAVE THIS PATTERN!</button> : null}
+                    {currentUser ? 
+                    <button onClick={handleCreateProject} className="create-project">SAVE THIS PATTERN!</button> : 
+                    null}
                     {projectComponents}
                 </ul>
             </div>

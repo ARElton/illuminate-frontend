@@ -121,10 +121,9 @@ header input {
 
 /*------ PatternList -------*/
 .pattern-list {
-  display: flex;
-  flex-flow: row wrap;
-  /* align-items: flex-start; */
-  justify-content: space-evenly;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; */
   background: #3b742fff;
   padding: 15px;
   margin: 0px;
@@ -147,12 +146,17 @@ header input {
 }
 
 
+
+
 /*------ PatternTile -------*/
 .pattern-card-list{
   list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .pattern-card {
   list-style-type: none;
@@ -168,9 +172,31 @@ header input {
   display:grid;
   text-align: center;
 }
+.pattern-tile-detail{
+  margin: 5px;
+  width: 250px;
+  height: 160px;
+  align-items: center;
+  text-shadow:
+  -1px -1px 3px #000,  
+   1px -1px 3px #000,
+  -1px  1px 3px #000,
+   1px  1px 3px #000;
+}
+.pattern-tile-detail h1{
+  font-size: 1em;
+  margin: 5px;
+  margin-bottom: 1px;
+  text-shadow:
+  -1px -1px 3px #000,  
+   1px -1px 3px #000,
+  -1px  1px 3px #000,
+   1px  1px 3px #000;
+}
 .pattern-card img {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: 150px;
+  margin: 10px;
   border: 3px solid black;
   border-radius: 10px;
 }
@@ -188,13 +214,22 @@ header input {
   -1px  1px 1px #000,
    1px  1px 1px #000;
 }
-
+.pat-p{
+  font-size: 0.75em;
+  margin: 10px;
+  text-shadow:
+  -1px -1px 3px #000,  
+   1px -1px 3px #000,
+  -1px  1px 3px #000,
+   1px  1px 3px #000;
+}
 
 /*------ PatternView -------*/
 .pattern-show {
-  width: 700px;
+  width: 600px;
   margin-left: 10px;
   display: grid;
+  margin-left: 10px;
 
 }
 .cat-p{
@@ -207,7 +242,7 @@ header input {
    1px  1px 3px #000;
 }
 .pattern-show img {
-  float: left;
+  
   max-width: 500px;
   max-height: 500px;
   border: 3px solid black;
@@ -442,7 +477,6 @@ header input {
    1px  1px 1px #000;
 }
 .add-pattern-form button {
-  /* float: left; */
   padding: 5px 5px;
   margin: 4px 2px;
   border: 3px solid black;
@@ -464,12 +498,6 @@ header input {
    1px  1px 1px #000;
 }
 .add-pattern-form select{
-  /* width: 75%;
-  height: 20px;
-  padding: 5px;
-  border-radius:5px;
-  margin: 5px;
-   */
   color: #faf7f3ff;
   text-shadow:
   -1px -1px 1px #000,  

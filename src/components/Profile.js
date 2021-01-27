@@ -19,7 +19,7 @@ function Profile({currentUser, projects, onRemoveProject, onEditProject}) {
     return(
         <div className="pattern-list">
             <h1>Your Projects</h1>
-            <ul className="pattern-cards">{projectComponents}</ul>
+            <ul className="pattern-card-list">{projectComponents}</ul>
         </div>
     )
 }
