@@ -1,16 +1,17 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-function ProjectTile({project, currentUser, image, pattern, favorite, onRemoveProject, onEditProject}) {
+function ProjectTile({project, image, favorite, onRemoveProject, onEditProject}) {
 
     
     const [newImg, setNewImg] = useState("")
     console.log(project)
     const location = useLocation()
   
-    function handleEdit(){
+    function handleEdit(event){
         //create object with image and favorite as true
         //fetch PATCH
+        event.preventDefault()
         fetch(`http://localhost:3000/projects/${project.id}`, {
             method: "PATCH",
             headers: {

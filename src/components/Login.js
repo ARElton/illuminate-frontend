@@ -1,17 +1,12 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, Route, Switch, Link, NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-function Login({setCurrentUser, setLogin, getUserProjects}) {
-
+function Login({setCurrentUser}) {
     const [username, setUsername] = useState("")
-
     let history = useHistory()
-
     function handleSubmit(e) {
         e.preventDefault()
-
         const formData = { username }
-
         fetch("http://localhost:3000/login", {
             method: "POST",
             headers: {
@@ -22,13 +17,9 @@ function Login({setCurrentUser, setLogin, getUserProjects}) {
         .then((r) => r.json())
         .then((data) => {
             setCurrentUser(data)
-            setUsername(data.username)
-            setLogin(true)
-            getUserProjects(data.id)
             history.push("/")
         })
     }
-
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -45,8 +36,6 @@ function Login({setCurrentUser, setLogin, getUserProjects}) {
             </form>
         </div>
     )
-
-
 }
 
 export default Login; 

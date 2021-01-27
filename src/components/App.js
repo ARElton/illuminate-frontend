@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import PatternList from './PatternList';
 import PatternView from './PatternView';
@@ -14,9 +14,8 @@ function App() {
   const [patterns, setPatterns] = useState([])
   const [projects, setProjects] = useState([])
   // User States
-  const [userProjects, setUserProjects] = useState([])
+  // const [userProjects, setUserProjects] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
-  const [login, setLogin] = useState(false)
   // Filter States
   const [query, setQuery] = useState("")
   const [currentPattern, setCurrentPattern] = useState(null)
@@ -58,30 +57,45 @@ function App() {
   function updateProjects(projObj){
     setProjects([...projects, projObj])
   }
-
+  function handleEditProject(editedProject){
+    const updatedProjectsList = projects.map((project)=>{
+      if (project.id === editedProject.id) {
+        return editedProject
+      } else {
+        return project
+      }
+    })
+    debugger
+    setProjects(updatedProjectsList)
+  }
   function handleRemoveProject(id) {
     const newProjects = projects.filter((project) => project.id !== id)
     setProjects(newProjects)
   }
-  // On User Login, set user projects
-  function getUserProjects(id){
-    const filteredProjects = projects.filter((project)=> {
-      return project.user_id === id
-    })
-    setUserProjects(filteredProjects)
-  }
-  // On new pattern upload, add to the pattern list
+
+  // UPDATE PATTERN LIST   ///    On new pattern upload, add to the pattern list
   function updatePatterns(patternObj){
     setPatterns([...patterns, patternObj])
   }
+
+
+  // On User Login, set user projects
+  
+
+  // function getUserProjects(id){
+  //   const filteredProjects = projects.filter((project)=> {
+  //     return project.user_id === id
+  //   })
+  //   setUserProjects(filteredProjects)
+  // }
+  
+  
 
   return (
     <div className="big-container">
       <Header 
         query={query} 
         setQuery={setQuery} 
-        login={login}
-        setLogin={setLogin}
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         setCurrentSort={setCurrentSort}
@@ -97,33 +111,31 @@ function App() {
       <Route exact path="/login">
         <Login 
         setCurrentUser={setCurrentUser} 
-        setLogin={setLogin} 
-        getUserProjects={getUserProjects}
+        // getUserProjects={getUserProjects}
         />
       </Route>
       <Route exact path="/profile">
         <Profile 
-        currentUser={currentUser} 
-        userProjects={userProjects} 
-        onRemoveProject={handleRemoveProject}
-        onEditProject={updateProjects}
+          currentUser={currentUser} 
+          projects={projects} 
+          onRemoveProject={handleRemoveProject}
+          onEditProject={handleEditProject}
         />
       </Route>
       <Route exact path="/patterns/new">
         <PatternForm updatePatterns={updatePatterns}/>
       </Route>
-
       <Route path="/patterns/:id">
         <PatternView 
-        pattern={currentPattern}
-        projects={projects}
-        currentUser={currentUser}
-        updateProjects={updateProjects}
-        allPatterns={patterns}
+          pattern={currentPattern}
+          projects={projects}
+          currentUser={currentUser}
+          updateProjects={updateProjects}
+          allPatterns={patterns}
+          onRemoveProject={handleRemoveProject}
+          onEditProject={handleEditProject}
         />
       </Route>
-
-
     </Switch>
     </div>
   )

@@ -1,13 +1,12 @@
-import React, {useParams, useState, useEffect} from "react";
-import { BrowserRouter as Link, useLocation} from 'react-router-dom';
+import React, {useState, useEffect} from "react";
+import { useLocation} from 'react-router-dom';
 import ProjectTile from './ProjectTile'
 
 
-function PatternView({pattern, projects, currentUser, updateProjects}) {
-    
+function PatternView({pattern, projects, currentUser, updateProjects, onRemoveProject, onEditProject}) {
+    const location = useLocation()
     const {id, name, image, description, category} = pattern
     const [project, setProject] = useState(null)
-
   
     const projectComponents = projects.filter((project) => {
         return project.pattern_id === id && project.favorite
@@ -20,6 +19,8 @@ function PatternView({pattern, projects, currentUser, updateProjects}) {
             currentUser={currentUser}
             pattern={pattern}
             favorite={project.favorite}
+            onRemoveProject={onRemoveProject}
+            onEditProject={onEditProject}
         />
     )
 
@@ -51,18 +52,12 @@ function PatternView({pattern, projects, currentUser, updateProjects}) {
                 <p className="cat-p">{category}</p>
                 <img src={image} alt={description} />
                 <p>{description}</p>
-                
-                
             </div>
             <div>
-                
-                
                 <ul className="project-cards-list">
                     {currentUser ? <button onClick={handleCreateProject} className="create-project">SAVE THIS PATTERN!</button> : null}
                     {projectComponents}
-
                 </ul>
-                
             </div>
         </div>
     )
