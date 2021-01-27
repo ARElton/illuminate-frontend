@@ -22,9 +22,10 @@ function Login({setCurrentUser}) {
     }
     return (
         <div className="pattern-list">
-            <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
-                <label htmlFor="username">Username</label>
+            <h1>Login</h1>
+            <form className="login-form" onSubmit={handleSubmit}>
+                
+                <label htmlFor="username">Please Enter Your Username</label>
                 <input 
                     type="text"
                     id="username"
@@ -32,7 +33,7 @@ function Login({setCurrentUser}) {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <input type="submit" className="button" value="Login" />
+                <button className="login-button" onClick={handleSubmit} value="Login">Login</button>
             </form>
         </div>
     )
