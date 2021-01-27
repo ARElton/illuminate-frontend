@@ -15,28 +15,40 @@ body {
   color: #faf7f3ff;
   background-color: #493e6bff;
 }
+.big-container {
+  flex: block;
+  flex-direction: column;
+  align-items: center;
+}
 
 /*----- HEADER -----*/
 header {
   background: #3b742fff;
-  padding: 15px;
-  margin: 10px;
-  border-radius:5px;
-	border:1px solid #3b6e22;
-  width: 80%;
+  padding: 5px;
+  margin: 5px;
+  border-radius:10px;
+  width: 1000px;
   height: fit-content;
   box-shadow: 2px 2px 5px #162B12ff;
   text-align: center;
+  border: 4px solid black;
 }
 header h1 {
-  /* font-family: 'New Rocker', cursive; */
   font-family: 'Amarante', cursive;
   letter-spacing: 20px;
   font-size: 80px;
   margin: 0px;
   padding: 0px;
-  text-shadow: 1px 1px 10px #faf7f380;
+  /* text-shadow: 1px 1px 10px #faf7f380; */
   /* -webkit-text-stroke: 0.1px black; */
+  text-shadow:
+    -3px -3px 0 #000,  
+     3px -3px 0 #000,
+    -3px  3px 0 #000,
+     3px  3px 0 #000;
+}
+::placeholder {
+  color: white;
 }
 header input {
   width: 75%;
@@ -44,15 +56,22 @@ header input {
   padding: 5px;
   border-radius:5px;
   margin: 5px;
+  
   color: #faf7f3ff;
+  text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
   background-color: #fdbf04ff;
+  border: 3px solid black;
 }
 .button {
 	background:linear-gradient(to bottom, #509e02 5%, #68a54b 100%);
   background-color:#509e02;
-  margin: 2px;
+  margin: 1px;
 	border-radius:5px;
-	border:1px solid #3b6e22;
+	border: 3px solid black;
 	display:inline-block;
 	cursor:pointer;
   color:#faf7f3;
@@ -60,9 +79,13 @@ header input {
 	font-family:Arial;
 	font-size:24px;
 	font-weight:bold;
-	padding:10px 40px;
+	padding:5px 20px;
 	text-decoration:none;
-	text-shadow:1px 2px 6px #162b12;
+	text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
 }
 .button:hover {
 	background:linear-gradient(to bottom, #68a54b 5%, #509e02 100%);
@@ -72,11 +95,7 @@ header input {
 	position:relative;
 	top:1px;
 }
-.search-submit {
-  background-color: #fdbf04ff;
-  border-radius: 100%;
-  width: fit-content;
-}
+
 
 /*------ Category ----------*/
 .category-nav {
@@ -92,29 +111,39 @@ header input {
 	display:inline-block;
 	cursor:pointer;
   color:#faf7f3;
+  border: 3px solid black;
+  text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
 }
 
 /*------ PatternList -------*/
 .pattern-list {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-flow: row wrap;
+  /* align-items: flex-start; */
   justify-content: space-evenly;
   background: #3b742fff;
   padding: 15px;
-  margin: 10px;
-  border-radius:5px;
+  margin: 0px;
+  border-radius:10px;
 	border:1px solid #3b6e22;
-  width: 80%;
+  width: 1000px;
   height: fit-content;
   box-shadow: 2px 2px 5px #162B12ff;
+  border: 4px solid black;
 }
 .pattern-list h1 {
   font-size: 50px;
   margin: 0px;
   padding: 5px;
-  text-shadow: 1px 1px 10px #faf7f380;
-  -webkit-text-stroke: 2px black;
+  text-shadow:
+  -1px -1px 3px #000,  
+   1px -1px 3px #000,
+  -1px  1px 3px #000,
+   1px  1px 3px #000;
 }
 .pattern-card ul {
   list-style-type: none;
@@ -126,48 +155,65 @@ header input {
 .pattern-card {
   list-style-type: none;
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
   background-color: #4f9e02ff;
-  border-radius:5px;
+  border-radius:10px;
 	border:1px solid #3b6e22;
   width: 400px;
   height: 200px;
+  border: 3px solid black;
 }
 .pattern-card img {
   max-width: 100px;
   max-height: 100px;
+  border: 3px solid black;
+  border-radius: 10px;
 }
-.fav-active {
-  background-color: #4f9e02ff;
-  border: transparent;
-}
-.fav-inactive {
-  background-color: #4f9e02ff;
-  border: transparent;
-}
+
 
 /*------ PatternView -------*/
 .pattern-show {
-  width: 70%;
+  width: 700px;
+  margin-left: 10px;
+  display: grid;
+
+}
+.cat-p{
+  font-size: 1em;
+  margin: 0px 0px 5px 30px;
+  text-shadow:
+  -1px -1px 3px #000,  
+   1px -1px 3px #000,
+  -1px  1px 3px #000,
+   1px  1px 3px #000;
 }
 .pattern-show img {
   float: left;
   max-width: 500px;
   max-height: 500px;
+  border: 3px solid black;
+  border-radius: 5px;
 }
 .pattern-show p {
-  /* float: left; */
-  width: 50%;
+  width: 550px;
+  text-shadow:
+  -1px -1px 3px #000,  
+   1px -1px 3px #000,
+  -1px  1px 3px #000,
+   1px  1px 3px #000;
+  
 }
 .pattern-show h1 {
   width: 50%;
-  /* float: right; */
   padding: 20px;
-  font-size: 50px;
+  font-size: 30px;
   margin: 0px;
   padding: 5px;
-  text-shadow: 1px 1px 10px #faf7f380;
-  -webkit-text-stroke: 2px black;
+  text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
 }
 .pattern-show h2 {
   width: 50%;
@@ -184,46 +230,111 @@ header input {
 .project-card {
   list-style-type: none;
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
   background-color: #4f9e02ff;
-  border-radius:5px;
+  border-radius:10px;
 	border:1px solid #3b6e22;
-  width: 400px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
+  width: 250px;
+  height: 300px;
+  border: 3px solid black;
+  overflow: hidden;
+  display:grid;
+  text-align: center;
+}
+.project-cards-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  
+}
+.create-project{
+  padding: 5px 10px;
+  margin: 4px 2px;
+  border: 3px solid black;
+  background-color:#509e02;
+  color:#faf7f3;
+	border-radius:5px;
+  cursor:pointer;
+  display: inline-block;
+  text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
+}
+.project-card-detail{
+  width: 250px;
+  height: 160px;
+  text-shadow:
+  -1px -1px 3px #000,  
+   1px -1px 3px #000,
+  -1px  1px 3px #000,
+   1px  1px 3px #000;
 }
 .project-card img {
-  max-width: 100px;
+  max-width: 150px;
   max-height: 100px;
+  min-height: 80px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.pro-CRUD{
+  width: 250px;
+  height: 75px;
+  text-shadow:
+  -1px -1px 2px #000,  
+   1px -1px 2px #000,
+  -1px  1px 2px #000,
+   1px  1px 2px #000;
 
 }
 .project-input{
-  width: 350px;
-}
-.project-card button {
-  margin: 3px;
-  border: 3px black;
-  background-color:#509e02;
-  margin: 2px 5px;
-  padding:5px 10px;
-	border-radius:5px;
-	cursor:pointer;
+  width: 150px;
+  border-radius: 5px;
+  border: 2px solid black;
   color:#faf7f3;
+  text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
+  background-color: #fdbf04ff;
+}
+.pro-add {
+  float: left;
+  padding: 5px 5px;
+  margin: 4px 2px;
+  border: 3px solid black;
+  background-color:#509e02;
+  color:#faf7f3;
+	border-radius:5px;
+  cursor:pointer;
+  display: inline-block;
+  text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
 }
 .pro-delete {
   float: right;
-  margin: 3px;
-  border: 3px black;
+  padding: 5px 5px;
+  margin: 4px 2px;
+  border: 3px solid black;
   background-color:#509e02;
-  margin: 2px 5px;
-  padding:5px 10px;
-	border-radius:5px;
-	cursor:pointer;
   color:#faf7f3;
+	border-radius:5px;
+  cursor:pointer;
+  display: inline-block;
+  text-shadow:
+  -1px -1px 1px #000,  
+   1px -1px 1px #000,
+  -1px  1px 1px #000,
+   1px  1px 1px #000;
+
+
+
 }
 
 

@@ -76,7 +76,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="big-container">
       <Header 
         query={query} 
         setQuery={setQuery} 

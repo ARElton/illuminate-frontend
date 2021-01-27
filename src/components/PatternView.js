@@ -48,19 +48,20 @@ function PatternView({pattern, projects, currentUser, updateProjects}) {
         <div className="pattern-list">
             <div className="pattern-show">
                 <h1>{name}</h1>
+                <p className="cat-p">{category}</p>
                 <img src={image} alt={description} />
                 <p>{description}</p>
-                <p>{category}</p>
+                
                 
             </div>
             <div>
-                <h2>Completed Projects</h2>
-                <button 
-                    onClick={handleCreateProject} 
-                    className="create-project">
-                    Create New Project
-                </button>
-                <ul className="project-cards">{projectComponents}</ul>
+                
+                
+                <ul className="project-cards-list">
+                    {currentUser ? <button onClick={handleCreateProject} className="create-project">SAVE THIS PATTERN!</button> : null}
+                    {projectComponents}
+
+                </ul>
                 
             </div>
         </div>
