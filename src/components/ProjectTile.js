@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 function ProjectTile({project, image, favorite, onRemoveProject, onEditProject}) {
 
@@ -37,7 +37,10 @@ function ProjectTile({project, image, favorite, onRemoveProject, onEditProject})
 
             <div className="project-card-detail">
             <h4>{favorite ? "Complete!": "Work in Progress"}</h4>
-            <img src={image} alt={"username"} />
+            
+                  <a href={image} target="_blank"><img src={image}  /></a>
+            
+            
             
             </div>
 

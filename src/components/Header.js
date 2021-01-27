@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, NavLink, useLocation  } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import Search from './Search';
 import Categories from './Categories';
 
@@ -8,6 +8,7 @@ function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) 
     const [catTog, setCatTog] = useState(false)
 
     const location = useLocation();
+    let history = useHistory()
 
 
     function catClick(){
@@ -16,6 +17,7 @@ function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) 
 
     function handleLogout(){
         setCurrentUser(null)
+        history.push("/")
     }
 
     return (

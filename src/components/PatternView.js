@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from "react";
-import { useLocation} from 'react-router-dom';
+import React, {useState} from "react";
+import { useLocation, useHistory} from 'react-router-dom';
 import ProjectTile from './ProjectTile'
 
 
 function PatternView({pattern, projects, currentUser, updateProjects, onRemoveProject, onEditProject}) {
     const location = useLocation()
+    let history = useHistory()
+
     const {id, name, image, description, category} = pattern
     const [project, setProject] = useState(null)
   
@@ -42,6 +44,7 @@ function PatternView({pattern, projects, currentUser, updateProjects, onRemovePr
           .then(newProj => {
             updateProjects(newProj)
             setProject(newProj)
+            history.push("/profile")
           })
     }
 

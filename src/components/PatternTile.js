@@ -11,14 +11,17 @@ function PatternTile({pattern, setCurrentPattern}) {
     return(
         <li className="pattern-card">
               <div className="pattern-tile-detail">
-              <strong>{name}</strong>
-              <img src={image} alt={description} />
-              <div className="Category">
-                  <span>{category}</span>
-              </div>
-              <Link to={`/patterns/${id}`}>
-                <button onClick={handleClick} className="button">click for more</button>
-              </Link>
+                <strong>{name}</strong>
+                <Link to={image} target="_blank">
+                  <img src={image} alt={description} />
+                </Link>
+                
+                <div className="Category">
+                    <span>{category}</span>
+                </div>
+                <Link to={`/patterns/${id}`}>
+                  <button onClick={handleClick} className="pattern-button">Details</button>
+                </Link>
               </div>
         </li>
     )

@@ -19,7 +19,7 @@ function PatternList ({patterns, login, currentUser, updateProjects, setCurrentP
     return(
         <div className="pattern-list">
             <h1>Patterns</h1>
-            <ul className="pattern-cards">{patternComponents}</ul>
+            <ul className="pattern-card-list">{patternComponents}</ul>
         </div>
     )
 

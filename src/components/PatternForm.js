@@ -58,7 +58,7 @@ function PatternForm({updatePatterns}) {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                 />
-                <label for="categories">Choose a category:</label>
+                
                 
                 
                 <input 
@@ -68,6 +68,8 @@ function PatternForm({updatePatterns}) {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
+
+                <label for="categories">Choose a category:</label>
                 <select id="categories" name="categories" onChange={(e) => setCategory(e.target.value)}>
                     <option value={category}>Art Deco</option>
                     <option value={category}>Art Nouveau</option>
