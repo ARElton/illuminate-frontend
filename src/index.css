@@ -16,8 +16,10 @@ body {
   background-color: #493e6bff;
 }
 .big-container {
-  flex: block;
+  text-align: center;
+  display: flex;
   flex-direction: column;
+  justify-items: flex-start;
   align-items: center;
 }
 
@@ -157,6 +159,7 @@ header input {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  
 }
 .pattern-card {
   list-style-type: none;

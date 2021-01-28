@@ -1,10 +1,12 @@
 import React, {useState} from "react";
+import { useHistory } from 'react-router-dom';
 
 function PatternForm({updatePatterns}) {
     const [image, setImage] = useState("")
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState("")
+    let history = useHistory()
     function handleSubmit(e) {
         e.preventDefault()
         fetch("http://localhost:3000/patterns", {
@@ -22,6 +24,7 @@ function PatternForm({updatePatterns}) {
         .then((r) => r.json())
         .then((data) => {
             updatePatterns(data)
+            history.push("/")
         })
     }
 
