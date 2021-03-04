@@ -16,8 +16,10 @@ body {
   background-color: #493e6bff;
 }
 .big-container {
-  flex: block;
+  text-align: center;
+  display: flex;
   flex-direction: column;
+  justify-items: flex-start;
   align-items: center;
 }
 
@@ -121,9 +123,10 @@ header input {
 
 /*------ PatternList -------*/
 .pattern-list {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap; */
+  flex-wrap: wrap;
+  align-items: center;
   background: #3b742fff;
   padding: 15px;
   margin: 0px;
@@ -150,13 +153,15 @@ header input {
 
 /*------ PatternTile -------*/
 .pattern-card-list{
-  list-style-type: none;
+  /* list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align: center;
+  text-align: center; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  /* justify-items: flex-start;
+  align-items: center; */
 }
 .pattern-card {
   list-style-type: none;
@@ -195,7 +200,7 @@ header input {
 }
 .pattern-card img {
   max-width: 150px;
-  max-height: 150px;
+  max-height: 130px;
   margin: 10px;
   border: 3px solid black;
   border-radius: 10px;
