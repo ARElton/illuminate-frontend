@@ -1,6 +1,9 @@
-Illuminate Owner/s: Aaron Amodt and Amelia Elton
-
+# Illuminate
 Illuminate is a repository for stained glass patterns, where users can share patterns and completed projects. 
+
+
+
+Owner/s: Aaron Amodt and Amelia Elton
 
 Domain model with attributes:
 

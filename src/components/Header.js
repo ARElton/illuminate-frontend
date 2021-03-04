@@ -7,6 +7,7 @@ function Header({query, setQuery, currentUser, setCurrentUser, setCurrentSort}) 
     const [catTog, setCatTog] = useState(false)
     const location = useLocation();
     let history = useHistory()
+    
     function catClick(){
         setCatTog(!catTog)
     }

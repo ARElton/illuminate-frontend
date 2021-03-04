@@ -6,6 +6,7 @@ import ProjectTile from './ProjectTile'
 function PatternView({pattern, projects, currentUser, updateProjects, onRemoveProject, onEditProject}) {
     let history = useHistory()
     const {id, name, image, description, category} = pattern
+
     const projectComponents = projects.filter((project) => {
         return project.pattern_id === id && project.favorite
     })
@@ -21,6 +22,7 @@ function PatternView({pattern, projects, currentUser, updateProjects, onRemovePr
             onEditProject={onEditProject}
         />
     )
+    
     function handleCreateProject() {
         const newProjObj = {
             user_id: currentUser.id,

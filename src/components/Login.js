@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 function Login({setCurrentUser}) {
     const [username, setUsername] = useState("")
     let history = useHistory()
+
     function handleSubmit(e) {
         e.preventDefault()
         const formData = { username }
@@ -20,11 +21,11 @@ function Login({setCurrentUser}) {
             history.push("/")
         })
     }
+
     return (
         <div className="pattern-list">
             <h1>Login</h1>
             <form className="login-form" onSubmit={handleSubmit}>
-                
                 <label htmlFor="username">Please Enter Your Username</label>
                 <input 
                     type="text"

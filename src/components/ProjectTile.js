@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 function ProjectTile({project, image, favorite, onRemoveProject, onEditProject}) {
     const [newImg, setNewImg] = useState(image)
     const location = useLocation()
+
     function handleEdit(event){
         event.preventDefault()
         fetch(`http://localhost:3000/projects/${project.id}`, {
@@ -18,6 +19,7 @@ function ProjectTile({project, image, favorite, onRemoveProject, onEditProject})
             onEditProject(editedProject)
           })
     }
+    
     function handleDelete(){
         fetch(`http://localhost:3000/projects/${project.id}`, {
             method: "DELETE"

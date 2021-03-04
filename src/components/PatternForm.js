@@ -5,6 +5,7 @@ function PatternForm({updatePatterns}) {
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState("")
+    
     function handleSubmit(e) {
         e.preventDefault()
         fetch("http://localhost:3000/patterns", {
